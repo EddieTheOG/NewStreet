@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { Container, Menu } from "semantic-ui-react";
+import { Container, Divider, Menu } from "semantic-ui-react";
 
 export default function HiddenstreetContainer() {
     return <Container>
@@ -8,6 +8,7 @@ export default function HiddenstreetContainer() {
             <Menu.Item as={ Link } name="Items" to="/hiddenstreet/items"  />
             <Menu.Item as={ Link } name="Classes" to="/hiddenstreet/classes"  />
         </Menu>
+        <Divider />
         <Container>
             <Outlet />
         </Container>
