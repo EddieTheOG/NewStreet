@@ -4,7 +4,7 @@ import { searchItemsApi } from "../../../api/ItemApi/ItemApi";
 
 const ItemsContainer = () => {
 
-    const [items, setItems] = useState([{  id: 1, name: 'asdf'},{},{}]);
+    const [items, setItems] = useState([]);
     const [searchInput, setSearchInput] = useState('');
 
     const searchItems = () => {
@@ -15,16 +15,27 @@ const ItemsContainer = () => {
     return (
         <>
             <h1>Items</h1>
-            <Form onSubmit={() => searchItems()}>
-                <Form.Input label='Item Search' type='text' onChange={(e) => setSearchInput(e.target.value)} />
+            <Form className="search center" onSubmit={() => searchItems()}>
+                <Form.Input label='Item Search' className="search-bar" type='text' onChange={(e) => setSearchInput(e.target.value)} />
                 <Button type='submit'>Search</Button>
             </Form>
-            <List style={{height: 200 + 'px'}}>
+            <List>
                {
-                    items.map((item) => {
+                    items.map(({ 
+                        id,
+                        requiredJobs, 
+                        requiredLevel, 
+                        requiredGender: gender,
+                        name,
+                        desc: description,
+                        typeInfo: {
+                            overallCategory: itemCategory,
+                            category,
+                            subCategory
+                        }  })=> {
                         return (
-                            <List.Item key={item.id}>
-                                {item.name}
+                            <List.Item key={id}>
+                                {name}
                             </List.Item>
                         );
                     })

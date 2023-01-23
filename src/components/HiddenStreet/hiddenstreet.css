@@ -1,0 +1,17 @@
+.hidden-street {
+    background-color: #ffc927;
+    display: flex;
+}
+
+.search {
+    width: 50%;
+}
+
+.center {
+    margin: auto;
+}
+
+.maple-header {
+    border: 4px solid black;
+}
+
